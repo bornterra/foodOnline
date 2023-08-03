@@ -19,5 +19,4 @@ urlpatterns = [
     path('reset_password/', views.reset_password, name='reset_password'),
 
     path('vendor/', include('vendor.urls')),
-    
 ]
