@@ -76,8 +76,10 @@ def add_category(request):
             category_name = form.cleaned_data['category_name']
             category = form.save(commit=False)
             category.vendor = get_vendor(request)
-            category.slug = slugify(category_name)
-            form.save()
+            
+            category.save() # here category id will be generated
+            category.slug = slugify(category_name)+'-'+str(category.id) # chicken-15
+            category.save()
             messages.success(request, 'Category added successfully!')
             return redirect('menu_builder')
         else:
@@ -99,8 +101,10 @@ def edit_category(request, pk=None):
             category_name = form.cleaned_data['category_name']
             category = form.save(commit=False)
             category.vendor = get_vendor(request)
-            category.slug = slugify(category_name)
-            form.save()
+            
+            category.save() # here category id will be generated
+            category.slug = slugify(category_name)+'-'+str(category.id) # chicken-15
+            category.save()
             messages.success(request, 'Category updated successfully!')
             return redirect('menu_builder')
         else:
@@ -130,8 +134,10 @@ def add_food(request):
             foodtitle = form.cleaned_data['food_title']
             food = form.save(commit=False)
             food.vendor = get_vendor(request)
-            food.slug = slugify(foodtitle)
-            form.save()
+            
+            food.save() # here food id will be generated
+            food.slug = slugify(foodtitle)+'-'+str(food.id) # chicken-15
+            food.save()
             messages.success(request, 'Food Item addedd successfully!')
             return redirect('fooditems_by_category', food.category.id)
         else:
@@ -155,8 +161,10 @@ def edit_food(request, pk=None):
             foodtitle = form.cleaned_data['food_title']
             food = form.save(commit=False)
             food.vendor = get_vendor(request)
-            food.slug = slugify(foodtitle)
-            form.save()
+            
+            food.save() # here food id will be generated
+            food.slug = slugify(foodtitle)+'-'+str(food.id) # chicken-15
+            food.save()
             messages.success(request, 'Food Item updated successfully!')
             return redirect('fooditems_by_category', food.category.id)
         else:
