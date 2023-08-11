@@ -1,0 +1,17 @@
+asgiref==3.7.2
+backports.zoneinfo==0.2.1
+certifi==2023.7.22
+charset-normalizer==3.2.0
+Django==4.2.3
+GDAL @ file:///C:/Users/egharee/Desktop/Learning%20Django/foodOnline/GDAL-3.4.3-cp38-cp38-win_amd64.whl#sha256=47e49a1833b7db6821bf6bad875f095bdbcba83383d9e77db557854626b55940
+idna==3.4
+Pillow==10.0.0
+psycopg2==2.9.6
+PySocks==1.7.1
+python-decouple==3.8
+requests==2.31.0
+simplejson==3.19.1
+sqlparse==0.4.4
+typing_extensions==4.7.1
+tzdata==2023.3
+urllib3==2.0.4
