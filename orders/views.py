@@ -91,7 +91,7 @@ def place_order(request):
 @login_required(login_url='login')
 def payments(request):
     # check if the request is ajax or not
-    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest' and request.method == 'POST':
         # store the payment details in the payment model
         order_number = request.POST.get('order_number')
         transaction_id = request.POST.get('transaction_id')
