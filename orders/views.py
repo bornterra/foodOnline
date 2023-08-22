@@ -154,15 +154,15 @@ def payments(request):
 
                 ordered_food_to_vendor = OrderedFood.objects.filter(order=order, fooditem__vendor=i.fooditem.vendor)
 
-        context = {        
-            'order': order,
-            'to_email': i.fooditem.vendor.user.email,
-            'ordered_food_to_vendor': ordered_food_to_vendor,
-            'vendor_subtotal': order_total_by_vendor(order, i.fooditem.vendor.id)['subtotal'],
-            'tax_data': order_total_by_vendor(order, i.fooditem.vendor.id)['tax_dict'],
-            'vendor_grand_total': order_total_by_vendor(order, i.fooditem.vendor.id)['grand_total'],
-        }
-        send_notification(mail_subject, mail_template, context)
+                context = {        
+                    'order': order,
+                    'to_email': i.fooditem.vendor.user.email,
+                    'ordered_food_to_vendor': ordered_food_to_vendor,
+                    'vendor_subtotal': order_total_by_vendor(order, i.fooditem.vendor.id)['subtotal'],
+                    'tax_data': order_total_by_vendor(order, i.fooditem.vendor.id)['tax_dict'],
+                    'vendor_grand_total': order_total_by_vendor(order, i.fooditem.vendor.id)['grand_total'],
+                }
+                send_notification(mail_subject, mail_template, context)
        
         # clear the cart if the payment is success
         cart_items.delete()
